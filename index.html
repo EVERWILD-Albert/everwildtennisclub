@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EVERWILD Tennis Club｜ETC 東京のテニス・スポーツコミュニティ</title>
+<meta name="description" content="EVERWILD Tennis Club（ETC）は、東京を拠点に、テニスレッスン・ランニング・フィジカルトレーニング・スポーツ交流イベントを展開するスポーツコミュニティです。日本語・中国語対応。">
+<meta property="og:title" content="EVERWILD Tennis Club｜ETC">
+<meta property="og:description" content="スポーツを通じたコミュニティ形成。東京のテニス・スポーツコミュニティ。日本語・中文対応。">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://everwildtennisclub.com/">
+<meta property="og:url" content="https://everwildtennisclub.com/">
+<meta name="theme-color" content="#706cf7">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23706cf7'/%3E%3Ccircle cx='50' cy='50' r='36' fill='%23dbff41'/%3E%3Cpath d='M29 20Q43 50 29 80M71 20Q57 50 71 80' stroke='%23706cf7' stroke-width='6' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lime:#dbff41; --purple:#706cf7; --orange:#fc7203; --green:#3d7d4f; --blue:#1e81d8;
+  --ink:#0d0d0d; --paper:#ffffff; --mist:#f4f4f1; --line:rgba(0,0,0,.12);
+  --serif:"Marcellus", "Times New Roman", serif;
+  --sans:"Noto Sans JP","Noto Sans SC","PingFang SC","Hiragino Sans",system-ui,sans-serif;
+  --r:22px;
+}
+html[lang="zh-CN"]{--sans:"Noto Sans SC","PingFang SC","Noto Sans JP",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.8;-webkit-font-smoothing:antialiased}
+img,svg{display:block}
+a{color:inherit}
+.wrap{width:min(1180px,100% - 48px);margin-inline:auto}
+.serif{font-family:var(--serif);font-weight:400;letter-spacing:.01em}
+
+/* Logo mark */
+.mark{width:1em;height:1em;flex:none}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.brand{display:flex;align-items:center;gap:.35em;text-decoration:none;font-family:var(--serif);font-size:30px;line-height:1}
+.brand .mark{font-size:30px}
+.nav-links{display:flex;gap:26px;list-style:none;font-size:14px;font-weight:500}
+.nav-links a{text-decoration:none;opacity:.75}
+.nav-links a:hover{opacity:1}
+.lang{display:flex;border:1px solid var(--ink);border-radius:999px;overflow:hidden;font-size:12px;font-weight:700}
+.lang button{border:0;background:none;padding:6px 11px;cursor:pointer;font:inherit;color:var(--ink)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--lime)}
+.menu-btn{display:none;background:none;border:0;font-size:26px;cursor:pointer}
+
+/* Hero */
+.hero{background:var(--purple);color:#fff;overflow:hidden;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:40px;min-height:min(86vh,760px);padding-block:72px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700;letter-spacing:.06em}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(48px,8.4vw,112px);line-height:.98;margin:26px 0 22px;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--lime)}
+.hero p.lead{font-size:clamp(16px,1.6vw,19px);max-width:34em;opacity:.95}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:700;text-decoration:none;font-size:15px;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-lime{background:var(--lime);color:var(--ink)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.7);color:#fff}
+.btn-dark{background:var(--ink);color:var(--lime)}
+.hero-art{position:relative;aspect-ratio:1;max-width:520px;width:100%;justify-self:end}
+.hero-art .ball{position:absolute;inset:0;animation:float 6s ease-in-out infinite}
+.hero-art .chip{position:absolute;border-radius:50%}
+@keyframes float{50%{transform:translateY(-14px) rotate(6deg)}}
+@media (prefers-reduced-motion:reduce){.hero-art .ball{animation:none}}
+
+/* Marquee */
+.ticker{background:var(--lime);border-block:2px solid var(--ink);overflow:hidden;white-space:nowrap}
+.ticker div{display:inline-flex;gap:38px;padding:14px 0;animation:tick 28s linear infinite;font-family:var(--serif);font-size:24px}
+.ticker span{display:inline-flex;align-items:center;gap:38px}
+.ticker span::after{content:"";width:16px;height:16px;border-radius:50%;background:var(--purple)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* Sections */
+section{padding-block:clamp(72px,10vw,120px)}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:48px;flex-wrap:wrap}
+.kicker{font-family:var(--serif);font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--purple);display:flex;align-items:center;gap:10px}
+.kicker::before{content:"";width:28px;height:2px;background:currentColor}
+h2{font-size:clamp(30px,4.2vw,50px);line-height:1.25;font-weight:700;margin-top:12px;letter-spacing:-.01em}
+.sec-head p{max-width:30em;opacity:.75}
+
+/* Concept */
+.concept{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.concept-quote{font-family:var(--serif);font-size:clamp(34px,4.6vw,58px);line-height:1.15}
+.concept-quote b{font-weight:400;background:var(--lime);padding:0 .15em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.concept p+p{margin-top:1em}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+.stat{border:1.5px solid var(--ink);border-radius:16px;padding:16px}
+.stat b{display:block;font-family:var(--serif);font-size:30px;font-weight:400;line-height:1.1}
+.stat small{font-size:12.5px;opacity:.7;line-height:1.5;display:block;margin-top:6px}
+
+/* Programs */
+#programs{background:var(--mist)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border-radius:var(--r);padding:30px 28px 32px;position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:300px;border:1px solid var(--line)}
+.card .num{font-family:var(--serif);font-size:15px;opacity:.5}
+.card h3{font-size:22px;margin:14px 0 10px;line-height:1.4}
+.card p{font-size:15px;opacity:.78}
+.card ul{list-style:none;margin-top:auto;padding-top:20px;display:flex;flex-wrap:wrap;gap:8px}
+.card li{font-size:12.5px;font-weight:700;border-radius:999px;padding:5px 12px;background:var(--mist)}
+.card .dot{position:absolute;right:-34px;top:-34px;width:120px;height:120px;border-radius:50%}
+.card.c1 .dot{background:var(--lime)} .card.c2 .dot{background:var(--purple)} .card.c3 .dot{background:var(--orange)}
+.card.feature{background:var(--ink);color:#fff;border:0}
+.card.feature li{background:rgba(255,255,255,.12)}
+.card.feature p{opacity:.85}
+
+/* Community band */
+.band{background:var(--green);color:#fff}
+.band .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.band .kicker{color:var(--lime)}
+.tile{border-radius:var(--r);padding:26px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18)}
+.tile .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;font-size:22px}
+.tile h3{font-size:19px;margin-bottom:6px}
+.tile p{font-size:14.5px;opacity:.85}
+
+/* International */
+.intl{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.lang-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.lang-badges span{font-weight:700;border-radius:999px;padding:9px 18px;font-size:15px}
+.intl-art{background:var(--blue);border-radius:28px;aspect-ratio:5/4;position:relative;overflow:hidden;display:grid;place-items:center;color:#fff}
+.intl-art .big{position:relative;z-index:1;font-family:var(--serif);font-size:clamp(56px,8vw,104px);line-height:1;text-align:center}
+.intl-art .big small{display:block;font-size:.26em;letter-spacing:.3em;margin-top:14px;opacity:.85}
+.checks{list-style:none;margin-top:22px;display:grid;gap:10px}
+.checks li{display:flex;gap:12px;align-items:flex-start}
+.checks li::before{content:"";flex:none;width:20px;height:20px;margin-top:5px;border-radius:50%;background:var(--lime);box-shadow:inset 0 0 0 2px var(--ink)}
+
+/* Coach */
+#coach{background:var(--mist)}
+.coach{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.coach-card{background:var(--purple);border-radius:28px;aspect-ratio:4/5;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:30px;color:#fff}
+.coach-card svg.bg{position:absolute;right:-18%;top:-10%;width:95%;opacity:1}
+.coach-card .name{position:relative;font-size:30px;font-weight:700;line-height:1.3}
+.coach-card .name small{display:block;font-family:var(--serif);font-weight:400;font-size:17px;opacity:.9;letter-spacing:.06em}
+.timeline{margin-top:26px;border-left:2px solid var(--ink);padding-left:22px;display:grid;gap:18px}
+.timeline div{position:relative}
+.timeline div::before{content:"";position:absolute;left:-30px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--lime);border:2px solid var(--ink)}
+.timeline b{display:block}
+.timeline span{font-size:14.5px;opacity:.75}
+
+/* Join steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+.step{border:1.5px solid var(--ink);border-radius:var(--r);padding:28px;counter-increment:s}
+.step::before{content:counter(s,decimal-leading-zero);font-family:var(--serif);font-size:44px;line-height:1;color:var(--purple);display:block;margin-bottom:14px}
+.step h3{font-size:19px;margin-bottom:6px}
+.step p{font-size:14.5px;opacity:.78}
+
+/* Contact */
+.contact{background:var(--lime)}
+.contact .box{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.contact h2{font-size:clamp(34px,5vw,62px)}
+.contact-list{display:grid;gap:12px}
+.contact-list a,.contact-list div{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;border:2px solid var(--ink);border-radius:16px;padding:18px 22px;text-decoration:none;font-weight:700}
+.contact-list small{display:block;font-weight:400;font-size:12.5px;opacity:.65}
+.contact-list .arrow{font-family:var(--serif);font-size:24px}
+
+/* Company / footer */
+.company{display:grid;grid-template-columns:1fr 1.4fr;gap:48px}
+.company dl{display:grid;grid-template-columns:9em 1fr;border-top:1px solid var(--line)}
+.company dt,.company dd{padding:16px 0;border-bottom:1px solid var(--line)}
+.company dt{font-weight:700;font-size:14px}
+.company dd{font-size:15px}
+footer{background:var(--ink);color:#fff;padding:56px 0 34px}
+.foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-end}
+.foot .wordmark{font-family:var(--serif);font-size:clamp(28px,4vw,44px);line-height:1.2}
+.foot .wordmark .row{display:flex;align-items:center;gap:.25em}
+.foot small{opacity:.55;font-size:12.5px}
+.foot nav{display:flex;gap:22px;font-size:14px;flex-wrap:wrap}
+.foot nav a{text-decoration:none;opacity:.8}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+/* Responsive */
+@media (max-width:960px){
+  .hero .wrap,.concept,.intl,.coach,.contact .box,.company{grid-template-columns:1fr}
+  .hero-art{justify-self:center;max-width:240px}
+  .cards,.steps{grid-template-columns:1fr 1fr}
+  .band .grid{grid-template-columns:1fr 1fr}
+  .coach-card{aspect-ratio:16/10}
+}
+@media (max-width:760px){
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;flex-direction:column;padding:18px 24px 24px;gap:14px;border-bottom:1px solid var(--line);font-size:16px}
+  .nav-links.open{display:flex}
+  .menu-btn{display:block}
+  .cards,.steps,.band .grid,.stats{grid-template-columns:1fr}
+  .company dl{grid-template-columns:7em 1fr}
+  .brand{font-size:26px}.brand .mark{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="etc-mark" viewBox="0 0 100 100">
+    <rect width="100" height="100" rx="18" fill="#706cf7"/>
+    <circle cx="50" cy="50" r="37" fill="#dbff41"/>
+    <path d="M29 19Q44 50 29 81M71 19Q56 50 71 81" stroke="#706cf7" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ball" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="48" fill="currentColor"/>
+    <path d="M27 6Q46 50 27 94M73 6Q54 50 73 94" stroke="var(--seam,#706cf7)" stroke-width="4.5" fill="none"/>
+  </symbol>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="EVERWILD Tennis Club">E<svg class="mark"><use href="#etc-mark"/></svg>TC</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" data-i18n="nav.about"></a></li>
+      <li><a href="#programs" data-i18n="nav.programs"></a></li>
+      <li><a href="#community" data-i18n="nav.community"></a></li>
+      <li><a href="#coach" data-i18n="nav.coach"></a></li>
+      <li><a href="#join" data-i18n="nav.join"></a></li>
+      <li><a href="#contact" data-i18n="nav.contact"></a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="ja">日本語</button><button data-lang="zh-CN">中文</button><button data-lang="en">EN</button>
+      </div>
+      <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero" style="padding:0">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">● <span data-i18n="hero.eyebrow"></span></span>
+        <h1>EVERWILD<br><em>Tennis</em> Club</h1>
+        <p class="lead" data-i18n="hero.lead"></p>
+        <div class="cta-row">
+          <a class="btn btn-lime" href="#contact" data-i18n="hero.cta1"></a>
+          <a class="btn btn-ghost" href="#programs" data-i18n="hero.cta2"></a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg class="ball" viewBox="0 0 100 100" style="color:var(--lime);--seam:var(--purple)"><use href="#ball"/></svg>
+        <svg class="chip" viewBox="0 0 100 100" style="width:22%;left:-6%;bottom:6%;color:var(--orange);--seam:var(--purple)"><use href="#ball"/></svg>
+        <svg class="chip" viewBox="0 0 100 100" style="width:15%;right:0;top:-2%;color:var(--blue);--seam:var(--purple)"><use href="#ball"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div>
+    <span>Tennis</span><span>Run</span><span>Physical</span><span>Community</span><span>Junior</span><span>Tokyo</span>
+    <span>Tennis</span><span>Run</span><span>Physical</span><span>Community</span><span>Junior</span><span>Tokyo</span>
+  </div></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap concept">
+      <div class="rv">
+        <div class="kicker">Concept</div>
+        <p class="concept-quote" style="margin-top:18px" data-i18n-html="about.quote"></p>
+      </div>
+      <div class="rv">
+        <p data-i18n="about.p1"></p>
+        <p data-i18n="about.p2"></p>
+        <div class="stats">
+          <div class="stat"><b>3</b><small data-i18n="about.s1"></small></div>
+          <div class="stat"><b>JA / 中</b><small data-i18n="about.s2"></small></div>
+          <div class="stat"><b>All ages</b><small data-i18n="about.s3"></small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section id="programs">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><div class="kicker">Programs</div><h2 data-i18n="prog.title"></h2></div>
+        <p data-i18n="prog.sub"></p>
+      </div>
+      <div class="cards">
+        <article class="card c1 rv"><span class="dot"></span><span class="num">01</span>
+          <h3 data-i18n="prog.c1.t"></h3><p data-i18n="prog.c1.d"></p>
+          <ul><li data-i18n="tag.beginner"></li><li data-i18n="tag.inter"></li></ul></article>
+        <article class="card c2 rv"><span class="dot"></span><span class="num">02</span>
+          <h3 data-i18n="prog.c2.t"></h3><p data-i18n="prog.c2.d"></p>
+          <ul><li data-i18n="tag.small"></li><li data-i18n="tag.social"></li></ul></article>
+        <article class="card c3 rv"><span class="dot"></span><span class="num">03</span>
+          <h3 data-i18n="prog.c3.t"></h3><p data-i18n="prog.c3.d"></p>
+          <ul><li data-i18n="tag.one"></li><li data-i18n="tag.flex"></li></ul></article>
+        <article class="card c2 rv"><span class="dot"></span><span class="num">04</span>
+          <h3 data-i18n="prog.c4.t"></h3><p data-i18n="prog.c4.d"></p>
+          <ul><li data-i18n="tag.kids"></li><li data-i18n="tag.edu"></li></ul></article>
+        <article class="card feature rv"><span class="num">05</span>
+          <h3 data-i18n="prog.c5.t"></h3><p data-i18n="prog.c5.d"></p>
+          <ul><li data-i18n="tag.member"></li><li data-i18n="tag.regular"></li></ul></article>
+        <article class="card c1 rv"><span class="dot"></span><span class="num">06</span>
+          <h3 data-i18n="prog.c6.t"></h3><p data-i18n="prog.c6.d"></p>
+          <ul><li data-i18n="tag.first"></li><li data-i18n="tag.trial"></li></ul></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section id="community" class="band">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><div class="kicker">Community</div><h2 data-i18n="com.title"></h2></div>
+        <p style="opacity:.85" data-i18n="com.sub"></p>
+      </div>
+      <div class="grid">
+        <div class="tile rv"><div class="ic" style="background:var(--lime)">🎾</div><h3 data-i18n="com.t1"></h3><p data-i18n="com.d1"></p></div>
+        <div class="tile rv"><div class="ic" style="background:var(--orange)">🏃</div><h3 data-i18n="com.t2"></h3><p data-i18n="com.d2"></p></div>
+        <div class="tile rv"><div class="ic" style="background:var(--purple)">💪</div><h3 data-i18n="com.t3"></h3><p data-i18n="com.d3"></p></div>
+        <div class="tile rv"><div class="ic" style="background:var(--blue)">💬</div><h3 data-i18n="com.t4"></h3><p data-i18n="com.d4"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERNATIONAL -->
+  <section id="international">
+    <div class="wrap intl">
+      <div class="intl-art rv" aria-hidden="true">
+        <svg viewBox="0 0 100 100" style="position:absolute;width:30%;right:-6%;bottom:-10%;color:var(--lime);--seam:var(--blue)"><use href="#ball"/></svg>
+        <div class="big">日 ⇄ 中<small>TOKYO · SPORTS EXCHANGE</small></div>
+      </div>
+      <div class="rv">
+        <div class="kicker">International</div>
+        <h2 data-i18n="intl.title"></h2>
+        <p style="margin-top:16px;opacity:.8" data-i18n="intl.p"></p>
+        <ul class="checks">
+          <li data-i18n="intl.l1"></li><li data-i18n="intl.l2"></li><li data-i18n="intl.l3"></li><li data-i18n="intl.l4"></li>
+        </ul>
+        <div class="lang-badges">
+          <span style="background:var(--lime)">日本語</span><span style="background:var(--purple);color:#fff">中文</span><span style="background:var(--ink);color:#fff">English</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COACH -->
+  <section id="coach">
+    <div class="wrap coach">
+      <div class="coach-card rv">
+        <svg class="bg" viewBox="0 0 100 100" style="color:var(--lime);--seam:var(--purple)" aria-hidden="true"><use href="#ball"/></svg>
+        <div class="name"><small>HEAD COACH</small><span data-i18n="coach.name"></span></div>
+      </div>
+      <div class="rv">
+        <div class="kicker">Coach</div>
+        <h2 data-i18n="coach.title"></h2>
+        <p style="margin-top:16px;opacity:.8" data-i18n="coach.p"></p>
+        <div class="timeline">
+          <div><b data-i18n="coach.t1"></b><span data-i18n="coach.d1"></span></div>
+          <div><b data-i18n="coach.t2"></b><span data-i18n="coach.d2"></span></div>
+          <div><b data-i18n="coach.t3"></b><span data-i18n="coach.d3"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN -->
+  <section id="join">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><div class="kicker">How to join</div><h2 data-i18n="join.title"></h2></div>
+        <p data-i18n="join.sub"></p>
+      </div>
+      <div class="steps">
+        <div class="step rv"><h3 data-i18n="join.t1"></h3><p data-i18n="join.d1"></p></div>
+        <div class="step rv"><h3 data-i18n="join.t2"></h3><p data-i18n="join.d2"></p></div>
+        <div class="step rv"><h3 data-i18n="join.t3"></h3><p data-i18n="join.d3"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap box">
+      <div class="rv">
+        <div class="kicker" style="color:var(--ink)">Contact</div>
+        <h2 data-i18n="contact.title"></h2>
+        <p style="margin-top:14px;max-width:30em" data-i18n="contact.p"></p>
+      </div>
+      <div class="contact-list rv">
+        <a id="mailLink" href="mailto:info@everwild.co.jp"><span><small data-i18n="contact.mail"></small><span id="mailText">info@everwild.co.jp</span></span><span class="arrow">→</span></a>
+        <div><span><small>Instagram / 小红书 / WeChat</small><span data-i18n="contact.sns"></span></span><span class="arrow">→</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPANY -->
+  <section id="company">
+    <div class="wrap company">
+      <div class="rv"><div class="kicker">Company</div><h2 data-i18n="co.title"></h2></div>
+      <dl class="rv">
+        <dt data-i18n="co.name"></dt><dd>EVERWILD株式会社（EVERWILD Inc.）</dd>
+        <dt data-i18n="co.addr"></dt><dd data-i18n="co.addrv"></dd>
+        <dt data-i18n="co.rep"></dt><dd data-i18n="co.repv"></dd>
+        <dt data-i18n="co.biz"></dt><dd data-i18n="co.bizv"></dd>
+        <dt data-i18n="co.brand"></dt><dd>EVERWILD Tennis Club（ETC）／ <a href="https://sanshun.jp" target="_blank" rel="noopener">山旬 SANSHUN</a></dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="wordmark">EVERWILD<div class="row"><svg class="mark"><use href="#etc-mark"/></svg>Tennis Club</div></div>
+      <small style="display:block;margin-top:18px">© <span id="yr"></span> EVERWILD Inc. All rights reserved.</small>
+    </div>
+    <nav>
+      <a href="#about" data-i18n="nav.about"></a><a href="#programs" data-i18n="nav.programs"></a>
+      <a href="#coach" data-i18n="nav.coach"></a><a href="#contact" data-i18n="nav.contact"></a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const CONTACT_EMAIL = "info@everwild.co.jp"; // ← 正式メールアドレスに置き換え
+
+const T = {
+ja:{
+ "nav.about":"ETCについて","nav.programs":"プログラム","nav.community":"コミュニティ","nav.coach":"コーチ","nav.join":"参加方法","nav.contact":"お問い合わせ",
+ "hero.eyebrow":"東京・2026年始動","hero.lead":"テニスを中心に、ランニング、フィジカルトレーニング、スポーツ交流イベントまで。EVERWILD Tennis Club は、スポーツを通じて人がつながるコミュニティです。日本語・中国語対応。",
+ "hero.cta1":"体験会に申し込む","hero.cta2":"プログラムを見る",
+ "about.quote":"スポーツを通じて、<b>コミュニティ</b>をつくる。",
+ "about.p1":"ETC（EVERWILD Tennis Club）は、EVERWILD株式会社が運営するスポーツコミュニティ・スポーツ教育事業です。単なるスクールではなく、一緒に打ち、走り、汗をかく仲間が集まる場所を目指しています。",
+ "about.p2":"初めてラケットを握る方から、もう一度本気でテニスに向き合いたい方、ジュニア、そして日本で気軽に参加できるスポーツの場を探している在日外国人の方まで。年齢や国籍を問わず、誰もが続けられるクラブです。",
+ "about.s1":"テニス・ラン・フィジカルの3本柱","about.s2":"日本語・中国語でサポート","about.s3":"ジュニアから大人まで",
+ "prog.title":"レベルと目的に合わせて選べる","prog.sub":"初級〜中級を中心に、グループ・個別・ジュニア・会員制練習会まで。まずは体験会からお気軽にどうぞ。",
+ "prog.c1.t":"テニスレッスン（初級〜中級）","prog.c1.d":"フォームの基礎からラリー、ゲーム形式まで。段階的に上達できるカリキュラムで指導します。",
+ "prog.c2.t":"グループレッスン","prog.c2.d":"少人数のグループで、楽しく、しっかり打てる。仲間と一緒だから続けられます。",
+ "prog.c3.t":"プライベートレッスン","prog.c3.d":"マンツーマンで課題を集中改善。日程や内容はご希望に合わせて調整します。",
+ "prog.c4.t":"ジュニアスポーツ教育","prog.c4.d":"テニスを通じて、運動の基礎、礼儀、チームワークを育てる青少年向けプログラム。",
+ "prog.c5.t":"会員制練習会","prog.c5.d":"月数回の定期練習会。会員同士で打ち合い、試合を楽しみ、コミュニティを広げる場です。",
+ "prog.c6.t":"初心者向け体験会","prog.c6.d":"道具がなくても大丈夫。テニスが初めての方も、久しぶりの方も、まずは気軽に体験から。",
+ "tag.beginner":"初級","tag.inter":"中級","tag.small":"少人数","tag.social":"仲間づくり","tag.one":"マンツーマン","tag.flex":"日程調整可","tag.kids":"ジュニア","tag.edu":"スポーツ教育","tag.member":"会員制","tag.regular":"月数回開催","tag.first":"初めてOK","tag.trial":"体験",
+ "com.title":"コートの外でも、つながる。","com.sub":"テニスだけでなく、ランニングやトレーニング、交流イベントを通じて、健康的なライフスタイルを一緒につくります。",
+ "com.t1":"定期スポーツイベント","com.d1":"レベルを問わず楽しめるテニス大会や交流会を定期開催。",
+ "com.t2":"ランニング","com.d2":"街を走るランニングイベント。E Run Club として仲間と走ります。",
+ "com.t3":"フィジカルトレーニング","com.d3":"ケガ予防とパフォーマンス向上のための合同トレーニング企画。",
+ "com.t4":"SNSコミュニティ","com.d4":"イベント情報や練習会の告知、メンバー同士の交流をオンラインでも。",
+ "intl.title":"日本と中国語圏を、スポーツでつなぐ。","intl.p":"東京には、中国語で気軽に参加できるスポーツの場がまだ多くありません。ETCは日本語・中国語の両方で対応し、国籍を越えた交流の場をつくります。",
+ "intl.l1":"中国語圏の方向けスポーツ交流","intl.l2":"訪日スポーツイベントの企画・受け入れ","intl.l3":"中国SNSを活用した情報発信","intl.l4":"海外からのお問い合わせにも対応",
+ "coach.name":"王 研博","coach.title":"現場経験と指導理論を兼ね備えたコーチ","coach.p":"体育指導・トレーニング理論を専門的に学び、中国と日本のテニスクラブで指導経験を積んできました。日本語・中国語の両方でレッスンが可能です。",
+ "coach.t1":"河南理工大学 社会体育指導与管理 専攻","coach.d1":"スポーツ指導、体育教育、トレーニング理論を専門に学ぶ",
+ "coach.t2":"中国のテニスクラブでコーチとして勤務","coach.d2":"幅広い年齢・レベルのプレーヤーを指導",
+ "coach.t3":"日本国内のテニスクラブでコーチとして勤務","coach.d3":"日本人会員への指導・対応経験",
+ "join.title":"はじめ方はかんたん","join.sub":"まずはお問い合わせから。レベルやご希望をお聞きして、ぴったりのプログラムをご案内します。",
+ "join.t1":"お問い合わせ","join.d1":"メールまたはSNSから、ご希望のプログラムやレベルをお知らせください。",
+ "join.t2":"体験会に参加","join.d2":"実際にコートで打ってみて、雰囲気やレッスン内容を体感してください。",
+ "join.t3":"入会・スタート","join.d3":"月額会員・レッスンなど、ライフスタイルに合ったプランでスタート。",
+ "contact.title":"一緒に、打とう。","contact.p":"体験会・レッスン・イベントのご予約やご質問は、お気軽にご連絡ください。日本語・中国語・英語で対応します。",
+ "contact.mail":"メール","contact.sns":"近日公開",
+ "co.title":"運営会社","co.name":"会社名","co.addr":"所在地","co.addrv":"〒173-0004 東京都板橋区板橋2-64-10 板橋新生ビル403号室","co.rep":"代表者","co.repv":"代表取締役 松永 栄一","co.biz":"事業内容","co.bizv":"スポーツ事業、アウトドア事業、スポーツコミュニティ運営、イベント企画運営 等","co.brand":"運営ブランド"
+},
+"zh-CN":{
+ "nav.about":"关于ETC","nav.programs":"课程项目","nav.community":"社群","nav.coach":"教练","nav.join":"如何加入","nav.contact":"联系我们",
+ "hero.eyebrow":"东京 · 2026年启动","hero.lead":"以网球为核心，延伸到跑步、体能训练与运动交流活动。EVERWILD Tennis Club 是一个通过运动把人连接在一起的社群。支持中文与日语。",
+ "hero.cta1":"报名体验课","hero.cta2":"查看课程",
+ "about.quote":"以运动，<b>连接</b>彼此。",
+ "about.p1":"ETC（EVERWILD Tennis Club）是由 EVERWILD 株式会社运营的运动社群与运动教育项目。我们不只是一所网球学校，而是一个能一起打球、一起奔跑、一起流汗的伙伴聚集地。",
+ "about.p2":"无论你是第一次握拍、想重新认真打球、是青少年，还是在日本寻找轻松参与的运动圈子的外籍朋友——不分年龄与国籍，这里都能让你坚持下去。",
+ "about.s1":"网球·跑步·体能 三大板块","about.s2":"中文与日语双语支持","about.s3":"青少年到成人",
+ "prog.title":"按水平与目标自由选择","prog.sub":"以初级到中级为主，涵盖小组课、私教课、青少年课程与会员练习会。欢迎先从体验课开始。",
+ "prog.c1.t":"网球课程（初级〜中级）","prog.c1.d":"从基础动作到对拉、比赛形式，循序渐进的课程体系帮你稳步提升。",
+ "prog.c2.t":"小组课","prog.c2.d":"小班教学，轻松愉快又练得扎实。和伙伴一起，更容易坚持。",
+ "prog.c3.t":"私教课","prog.c3.d":"一对一针对性改进技术问题，时间与内容可按需安排。",
+ "prog.c4.t":"青少年运动教育","prog.c4.d":"通过网球培养孩子的运动基础、礼仪与团队精神。",
+ "prog.c5.t":"会员练习会","prog.c5.d":"每月数次定期练习会。会员之间对练、打比赛，结识更多球友。",
+ "prog.c6.t":"新手体验会","prog.c6.d":"没有球拍也没关系。零基础或久未打球的朋友，都欢迎轻松来体验。",
+ "tag.beginner":"初级","tag.inter":"中级","tag.small":"小班","tag.social":"结交球友","tag.one":"一对一","tag.flex":"时间灵活","tag.kids":"青少年","tag.edu":"运动教育","tag.member":"会员制","tag.regular":"每月数次","tag.first":"零基础可","tag.trial":"体验",
+ "com.title":"球场之外，也在一起。","com.sub":"不只是网球，还有跑步、训练与交流活动，一起打造健康的生活方式。",
+ "com.t1":"定期运动活动","com.d1":"定期举办不分水平都能享受的网球赛与交流会。",
+ "com.t2":"跑步","com.d2":"城市跑步活动，以 E Run Club 的名义和伙伴一起跑。",
+ "com.t3":"体能训练","com.d3":"以预防受伤和提升表现为目标的集体训练。",
+ "com.t4":"线上社群","com.d4":"活动与练习会通知、会员交流，线上同样热闹。",
+ "intl.title":"用运动，连接日本与华语圈。","intl.p":"在东京，能用中文轻松参加的运动场所还很少。ETC 提供中日双语服务，打造跨越国籍的交流空间。",
+ "intl.l1":"面向华语圈朋友的运动交流","intl.l2":"访日运动活动的策划与接待","intl.l3":"通过小红书、微信等中文社媒发布信息","intl.l4":"支持海外咨询",
+ "coach.name":"王 研博","coach.title":"兼具实战经验与专业理论的教练","coach.p":"专业学习体育指导与训练理论，曾在中国与日本的网球俱乐部积累执教经验，可用中文和日语授课。",
+ "coach.t1":"河南理工大学 社会体育指导与管理 专业","coach.d1":"系统学习运动指导、体育教育与训练理论",
+ "coach.t2":"中国网球俱乐部 网球教练","coach.d2":"执教不同年龄与水平的学员",
+ "coach.t3":"日本国内网球俱乐部 网球教练","coach.d3":"拥有指导日本会员的经验",
+ "join.title":"加入很简单","join.sub":"先联系我们。了解你的水平和需求后，我们会推荐最合适的课程。",
+ "join.t1":"咨询","join.d1":"通过邮件或社交平台，告诉我们你想参加的项目和目前水平。",
+ "join.t2":"参加体验课","join.d2":"亲自上场打一打，感受课程内容和氛围。",
+ "join.t3":"入会 · 开始","join.d3":"月度会员或单次课程，选择适合你生活节奏的方案。",
+ "contact.title":"一起，来打球吧。","contact.p":"体验课、课程、活动的预约与咨询，欢迎随时联系。支持中文、日语、英语。",
+ "contact.mail":"邮箱","contact.sns":"即将开通",
+ "co.title":"运营公司","co.name":"公司名称","co.addr":"地址","co.addrv":"〒173-0004 东京都板桥区板桥2-64-10 板桥新生大厦403室","co.rep":"代表","co.repv":"代表董事 松永 荣一","co.biz":"业务内容","co.bizv":"体育事业、户外事业、运动社群运营、活动策划运营等","co.brand":"旗下品牌"
+},
+en:{
+ "nav.about":"About","nav.programs":"Programs","nav.community":"Community","nav.coach":"Coach","nav.join":"Join","nav.contact":"Contact",
+ "hero.eyebrow":"Tokyo · Launching 2026","hero.lead":"Tennis at the core — plus running, physical training and social sports events. EVERWILD Tennis Club is a community where people connect through sport. Japanese & Chinese supported.",
+ "hero.cta1":"Book a trial session","hero.cta2":"See programs",
+ "about.quote":"Building <b>community</b> through sport.",
+ "about.p1":"ETC (EVERWILD Tennis Club) is a sports community and sports education project run by EVERWILD Inc. More than a tennis school, it's a place to hit, run and sweat alongside friends.",
+ "about.p2":"Whether you're picking up a racket for the first time, getting serious again, a junior player, or an international resident looking for an easy way into sport in Japan — all ages and nationalities welcome.",
+ "about.s1":"Tennis, running & physical training","about.s2":"Support in Japanese & Chinese","about.s3":"Juniors to adults",
+ "prog.title":"Programs for every level and goal","prog.sub":"Beginner to intermediate focus — group, private, junior and member sessions. Start with a trial.",
+ "prog.c1.t":"Tennis lessons (Beginner–Intermediate)","prog.c1.d":"From fundamentals to rallies and match play, with a step-by-step curriculum.",
+ "prog.c2.t":"Group lessons","prog.c2.d":"Small groups — fun, focused and easier to stick with together.",
+ "prog.c3.t":"Private lessons","prog.c3.d":"One-on-one coaching on exactly what you want to improve, scheduled around you.",
+ "prog.c4.t":"Junior sports education","prog.c4.d":"Building movement skills, respect and teamwork through tennis.",
+ "prog.c5.t":"Member practice sessions","prog.c5.d":"Regular sessions several times a month to rally, play matches and meet people.",
+ "prog.c6.t":"Beginner trial sessions","prog.c6.d":"No gear needed. New to tennis or coming back — just come and try.",
+ "tag.beginner":"Beginner","tag.inter":"Intermediate","tag.small":"Small groups","tag.social":"Make friends","tag.one":"1-on-1","tag.flex":"Flexible","tag.kids":"Juniors","tag.edu":"Education","tag.member":"Members","tag.regular":"Monthly","tag.first":"First-timers","tag.trial":"Trial",
+ "com.title":"Connected off the court, too.","com.sub":"Running, training and social events — building a healthy lifestyle together.",
+ "com.t1":"Regular events","com.d1":"Tennis tournaments and socials for every level.",
+ "com.t2":"Running","com.d2":"City runs together as E Run Club.",
+ "com.t3":"Physical training","com.d3":"Group sessions for injury prevention and performance.",
+ "com.t4":"Online community","com.d4":"Event news, session updates and member chat online.",
+ "intl.title":"Connecting Japan and the Chinese-speaking world through sport.","intl.p":"There are still few places in Tokyo to join sport in Chinese. ETC works in both Japanese and Chinese to create exchange across nationalities.",
+ "intl.l1":"Sports exchange for Chinese speakers","intl.l2":"Hosting inbound sports events in Japan","intl.l3":"Updates on Chinese social media","intl.l4":"Enquiries from overseas welcome",
+ "coach.name":"Wang Yanbo","coach.title":"Hands-on experience, grounded in coaching theory","coach.p":"Trained in sports coaching and training theory, with coaching experience at tennis clubs in China and Japan. Teaches in Japanese and Chinese.",
+ "coach.t1":"Henan Polytechnic University — Social Sports Coaching & Management","coach.d1":"Sports coaching, physical education and training theory",
+ "coach.t2":"Tennis coach at clubs in China","coach.d2":"Coached players across ages and levels",
+ "coach.t3":"Tennis coach at a club in Japan","coach.d3":"Experience coaching Japanese members",
+ "join.title":"Getting started is easy","join.sub":"Get in touch — we'll recommend the right program for your level and goals.",
+ "join.t1":"Contact us","join.d1":"Tell us by email or social media what you're interested in and your level.",
+ "join.t2":"Join a trial","join.d2":"Get on court and feel the coaching and atmosphere.",
+ "join.t3":"Sign up & play","join.d3":"Choose a membership or lessons that fit your routine.",
+ "contact.title":"Let's hit together.","contact.p":"For trial sessions, lessons, events or questions, reach out any time. Japanese, Chinese and English.",
+ "contact.mail":"Email","contact.sns":"Coming soon",
+ "co.title":"Company","co.name":"Company","co.addr":"Address","co.addrv":"Itabashi Shinsei Bldg. #403, 2-64-10 Itabashi, Itabashi-ku, Tokyo 173-0004","co.rep":"Representative","co.repv":"Eiichi Matsunaga, CEO","co.biz":"Business","co.bizv":"Sports, outdoor, sports community management, event planning and more","co.brand":"Brands"
+}};
+
+function setLang(l){
+  if(!T[l]) l="ja";
+  document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(e=>{const v=T[l][e.dataset.i18n]; if(v!=null) e.textContent=v;});
+  document.querySelectorAll("[data-i18n-html]").forEach(e=>{const v=T[l][e.dataset.i18nHtml]; if(v!=null) e.innerHTML=v;});
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===l));
+  try{localStorage.setItem("etc-lang",l)}catch(e){}
+}
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
+let init="ja";
+try{init=localStorage.getItem("etc-lang")||""}catch(e){}
+if(!init){const n=(navigator.language||"").toLowerCase(); init=n.startsWith("zh")?"zh-CN":n.startsWith("ja")?"ja":n?"en":"ja";}
+setLang(init);
+
+document.getElementById("mailLink").href="mailto:"+CONTACT_EMAIL;
+document.getElementById("mailText").textContent=CONTACT_EMAIL;
+document.getElementById("yr").textContent=new Date().getFullYear();
+document.querySelectorAll(".nav-links a").forEach(a=>a.onclick=()=>document.getElementById("navLinks").classList.remove("open"));
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach(e=>io.observe(e));
+</script>
+</body>
+</html>
